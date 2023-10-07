@@ -19,4 +19,3 @@ function EqualSums(arr) {
   }
   console.log(`no`);
 }
-EqualSums([1, 2, 3]);

@@ -5,5 +5,3 @@ function ArrayRotation(arr, num) {
   }
   console.log(arr.join(` `));
 }
-
-ArrayRotation([51, 47, 32, 61, 21], 2);

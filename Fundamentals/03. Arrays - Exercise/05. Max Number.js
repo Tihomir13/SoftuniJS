@@ -18,5 +18,3 @@ function MaxNumber(arr) {
   MAX.push(arr[arr.length - 1]);
   console.log(MAX.join(` `));
 }
-
-MaxNumber([27, 19, 42, 2, 13, 45, 48]);

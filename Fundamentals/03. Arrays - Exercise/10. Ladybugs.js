@@ -23,6 +23,7 @@ function Ladybug(info) {
         moving.push(info[i])
     }
     console.log(moving);
+
     //pushvame vsqko po otdelno
     mvL = moving.length;
     for (let i = 0; i < mvL; i++) {
@@ -44,14 +45,15 @@ function Ladybug(info) {
     }
     console.log(moving);
 
-    for (let i = 1; i < moving.length; i += 3) {
-        if (moving[i] == `right`) {
-            field[i - 1] -= 1;
+    let counter = 0;
+    let currentPos;
+    for (let i = 0; i < moving.length; i++) {
+        counter++;
+        if (counter === 1) {
+            currentPos = moving[i];
+        }
+        else if (counter === 2) {
+
         }
     }
-    console.log(field);
 }
-Ladybug([3, '0 1',
-    '0 right 1',
-    '2 right 1']
-);
