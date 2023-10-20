@@ -17,12 +17,10 @@ function Ladybug(info) {
     for (let i = 0; i < string.length; i++) {
         field[string[i]] += 1;
     }
-    console.log(field);
     //push-vame elementite 
     for (let i = 2; i < info.length; i++) {
         moving.push(info[i])
     }
-    console.log(moving);
 
     //pushvame vsqko po otdelno
     mvL = moving.length;
@@ -43,17 +41,87 @@ function Ladybug(info) {
     for (let i = 0; i < mvL; i++) {
         moving.shift(i);
     }
-    console.log(moving);
 
-    let counter = 0;
     let currentPos;
-    for (let i = 0; i < moving.length; i++) {
-        counter++;
-        if (counter === 1) {
-            currentPos = moving[i];
-        }
-        else if (counter === 2) {
+    let finalPosition;
 
+    for (let i = 0; i < moving.length; i += 3) {
+        currentPos = Number(moving[i]);
+        nextPos = Number(moving[i + 2]);
+
+        field[currentPos] -= 1;
+        if (moving[i + 1] == `right`) {
+            if (nextPos > 0) {
+                for (let p = currentPos; p <= info[0]; p++) {
+                    if (field[p + nextPos] >= 1) {
+                        continue;
+                    }
+                    else {
+                        field[p + nextPos] += 1;
+                        break;
+                    }
+                }
+            }
+            else {
+                for (let p = currentPos; p <= info[0]; p--) {
+                    if (field[p - nextPos] >= 1) {
+                        continue;
+                    }
+                    else {
+                        field[p - nextPos] += 1;
+                        break;
+                    }
+                }
+            }
+        }
+        else if (moving[i + 1] == `left`) {
+            if (moving[i + 2] > 0) {
+                for (let p = currentPos; p <= info[0]; p--) {
+                    if (field[p - nextPos] >= 1) {
+                        continue;
+                    }
+                    else {
+                        field[p - nextPos] += 1;
+                        break;
+                    }
+                }
+            }
+            else {
+                for (let p = currentPos; p <= info[0]; p++) {
+                    nextPos *= -1;
+                    if (field[p + nextPos] >= 1) {
+                        continue;
+                    }
+                    else {
+                        field[p + nextPos] += 1;
+                        break;
+                    }
+                }
+            }
         }
     }
+    let string1 = ``;
+    for (let i = 0; i < field.length; i++) {
+        if (field[i] == 1 || field[i] == 0)
+            string1 += ` ` + field[i];
+    }
+    console.log(string1);
 }
+
+Ladybug([3, '0 1',
+    '0 right 1',
+    '2 right 1']
+);
+Ladybug([5, '3',
+    '3 left 2',
+    '1 left -2',]);
+
+Ladybug([3, '0 1 2',
+    '0 right 1',
+    '1 right 1',
+    '2 right 1']);
+
+Ladybug([8, '0 1 2 4 5 6 7 8',
+    '0 right 1',
+    '1 right 1',
+    '2 right 1']);
