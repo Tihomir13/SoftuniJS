@@ -8,9 +8,3 @@ function Employees(arr) {
         employee.print(arr[i]);
     }
 }
-
-Employees(['Silas Butler',
-    'Adnaan Buckley',
-    'Juan Peterson',
-    'Brendan Villarreal'
-]);
