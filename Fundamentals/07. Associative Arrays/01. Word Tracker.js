@@ -1,21 +1,29 @@
 function WordTracker(arr) {
-    let [word1, word2] = arr.shift().split(` `);;
-    let word1Count = 0;
-    let word2Count = 0;
-
+    let SearchedWords = arr.shift().split(` `);
     let final = {};
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] == word1)
-            final[word1] = word1Count += 1;
-        if (arr[i] == word2)
-            final[word2] = word2Count += 1;
+
+    for (let word of arr) {
+        if (SearchedWords.includes(word)) {
+            if (word in final) {
+                final[word]++;
+            }
+            else
+                final[word] = 1;
+        }
     }
 
-    let entries = Object.entries(final);
-    entries.sort((a, b) => b[1] - a[1]);
-    final = Object.fromEntries(entries);
+    // for (let word of SearchedWords) {
+    //     final[word] = 0;
+    // }
+    // for (let word of arr) {
+    //     if (word in final) {
+    //         final[word]++;
+    //     }
+    // }
 
-    for (let [word, occurrences] of Object.entries(final)) {
+    let entries = Object.entries(final).sort((a, b) => b[1] - a[1]);
+
+    for (let [word, occurrences] of entries) {
         console.log(`${word} - ${occurrences}`);
     }
 }
