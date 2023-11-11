@@ -13,6 +13,8 @@ function Piccolo(arr) {
         }
     }
     let keys = Object.keys(parkingLot).sort((a, b) => a.localeCompare(b));
+    if (keys == 0)
+        console.log(`Parking Lot is Empty`);
     for (const Number of keys) {
         console.log(`${Number}`);
     }
