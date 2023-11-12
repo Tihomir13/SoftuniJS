@@ -19,6 +19,3 @@ function ModernTimesOfHashTag(string) {
         console.log(word.substring(1, word.length));
     }
 }
-
-ModernTimesOfHashTag('Nowadays everyone uses # to tag a #special word in #socialMedia'
-);
