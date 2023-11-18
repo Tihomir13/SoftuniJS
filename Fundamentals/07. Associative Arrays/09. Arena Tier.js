@@ -85,7 +85,7 @@ function ArenaTier(input) {
         return (totalB - totalA) || a[0].localeCompare(b[0]);
     }
 }
-
+//Не работи
 ArenaTier([
     'Peter -> BattleCry -> 400',
     'Alex -> PowerPunch -> 300',

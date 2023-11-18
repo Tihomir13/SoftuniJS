@@ -1,21 +1,18 @@
 function ModernTimesOfHashTag(string) {
-    string += ` `;
-    let HashTagWords = [];
-    for (let i = 0; i < string.length; i++) {
-        let wordLength = 0;
-        if (string[i] == `#`) {
-            let p = i;
-            while (string[p] != ` `) {
-                wordLength++;
-                p++;
-            }
-            if (wordLength >= 2)
-                HashTagWords.push(string.substring(i, p));
-        }
-        else continue;
-    }
+    string = string.split(` `);
+    let words = string.filter((word) => (word.startsWith(`#`) && word.length > 1))
 
-    for (const word of HashTagWords) {
-        console.log(word.substring(1, word.length));
+    for (let word of words) {
+        word = word.slice(1);
+        let isValid = true;
+        for (let char of word) {
+            if (!/[A-Za-z]/.test(char)) {
+                isValid = false;
+                break;
+            }
+        }
+        if (isValid) {
+            console.log(word);
+        }
     }
 }
