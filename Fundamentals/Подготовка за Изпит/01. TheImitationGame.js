@@ -1,7 +1,5 @@
 function TheImitationGame(arr) {
-
     let MSG = arr.shift();
-
     for (let i = 0; i < arr.length; i++) {
         let [command, s1, s2] = arr[i].split(`|`);
         switch (command) {
@@ -26,11 +24,3 @@ function TheImitationGame(arr) {
         }
     }
 }
-
-TheImitationGame([
-    'zzHe',
-    'ChangeAll|z|l',
-    'Insert|2|o',
-    'Move|3',
-    'Decode'
-]);
