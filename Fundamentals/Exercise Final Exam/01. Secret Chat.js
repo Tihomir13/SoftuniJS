@@ -27,10 +27,3 @@ function SecterChat(arr) {
   }
   console.log(`You have a new text message: ${word}`);
 }
-
-SecterChat([
-  'heVVodar!gniV',
-  'ChangeAll:|:V:|:l',
-  'Reverse:|:!gnil',
-  'InsertSpace:|:5',
-  'Reveal']);
