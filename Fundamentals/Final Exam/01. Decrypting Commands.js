@@ -7,10 +7,10 @@ function DecryptingCommands(arr) {
             console.log(word);
         }
         else if (command == `Cut`) {
-            if (p1 > 0 && p2 > 0 && p1 < word.length && p2 < word.length) {
-                word = word.split(``);
-                word.splice(p1, p2);
-                word = word.join(``);
+            if (p1 > 0 && p2 > 0 && p1 <= word.length && p2 <= word.length) {
+                p1 = Number(p1);
+                p2 = Number(p2);
+                word = word.substring(0, p1) + word.substring(p2 + 1);
                 console.log(word);
             }
             else console.log(`Invalid indices!`);
@@ -33,7 +33,7 @@ function DecryptingCommands(arr) {
                 console.log(`Message doesn't contain ${p1}`);
         }
         else if (command == `Sum`) {
-            if (p1 > 0 && p2 > 0 && p1 < word.length && p2 < word.length) {
+            if (p1 > 0 && p2 > 0 && p1 <= word.length && p2 <= word.length) {
                 let sum = 0;
                 for (let i = p1; i <= p2; i++) {
                     sum += word[i].charCodeAt()
@@ -46,3 +46,4 @@ function DecryptingCommands(arr) {
         [command, p1, p2] = arr.shift().split(` `);
     }
 }
+DecryptingCommands(["ILikeSoftUni", "Replace I We", "Make Upper", "Check SoftUni", "Sum 1 4", "Cut 1 4", "Finish"])
