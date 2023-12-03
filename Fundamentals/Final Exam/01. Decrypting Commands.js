@@ -46,4 +46,3 @@ function DecryptingCommands(arr) {
         [command, p1, p2] = arr.shift().split(` `);
     }
 }
-DecryptingCommands(["ILikeSoftUni", "Replace I We", "Make Upper", "Check SoftUni", "Sum 1 4", "Cut 1 4", "Finish"])
